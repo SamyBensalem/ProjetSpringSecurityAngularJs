@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Inscription</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/myStyle.css" />
+</head>
+
+<body ng-app="myApp" ng-controller="listEtudiantController">
+
+   <div class="col-md-6 sol-sm-6 spacer">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID</th><th>Nom</th><th>Prénom</th><th>Date Naissance</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="e in pageEtudiants.data.content">
+					<td>{{e.idEtudiant}}</td>
+					<td>{{e.nom}}</td>
+					<td>{{e.prenom}}</td>
+					<td>{{e.dateNaissance|date:'dd/MM/yyyy'}}</td>
+				</tr>
+			</tbody>
+		</table>
+
+
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/myApp.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-messages.min.js"></script>
+</body>
+
+</html>

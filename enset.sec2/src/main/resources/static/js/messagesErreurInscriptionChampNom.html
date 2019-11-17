@@ -1,0 +1,15 @@
+<html>
+
+
+
+<body>
+
+	<div ng-messages="registerForm.nom.$error" class="error">
+		<p ng-message="required">Le nom est obligatoire</p>
+		<p ng-message="minlength">Le nom est trop court, 3 caracteres minimum</p>
+		<p ng-message="maxlength">Le nom est trop long, 15 caracteres maximum</p>
+	</div>
+
+</body>
+
+</html>

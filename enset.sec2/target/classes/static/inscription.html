@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Inscription</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/myStyle.css" />
+</head>
+
+<body ng-app="myApp" ng-controller="InscriptionController">
+	<div class="col-md-6 col-sm-6 col-xs-12 spacer">
+		<div class="panel panel-info">
+			<div class="card-header-tabs">Inscription d'un étudiant</div>
+
+
+
+
+
+
+			<div class="card-body">
+				<div ng-if="mode.value=='form'">
+					<form name="registerForm" novalidate="true">
+						<div class="form-group">
+							<label class="control-label">Nom :</label>
+							<div ng-messages="registerForm.nom.$error">
+								<input class="form-control" type="text" ng-model="etudiant.nom" ng-minlength="3"
+									ng-maxlength="15" ng-required="true" name="nom" />
+								<div ng-messages-include="./js/messagesErreurInscriptionChampNom.html"> </div>
+							</div>
+							<!--	<span ng-if="errors" class="error">{{errors.nom}}</span>-->
+						</div>
+
+
+						<div class="form-group">
+							<label class="control-label">Prénom :</label>
+							<div ng-messages="registerForm.prenom.$error">
+								<input class="form-control" type="text" ng-model="etudiant.prenom" ng-minlength="3"
+									ng-required="true" ng-maxlength="15" name="prenom" />
+								<div ng-messages-include="./js/messagesErreurInscriptionChampPrenom.html"> </div>
+							</div>
+							<!--<span ng-if="errors" class="error">{{errors.prenom}}</span>-->
+						</div>
+
+
+						<div class="form-group">
+							<label class="control-label">Date Naissance : </label>
+							<div ng-messages="registerForm.prenom.$error"></div>
+							<input class="form-control" type="date" ng-model="etudiant.dateNaissance"
+								ng-required="true" />
+						</div>
+						<!--<span ng-if="errors" class="error">{{errors.dateNaissance}}</span>-->
+						<div>
+							<button class="btn btn-primary" ng-click="saveEtudiant()">Save</button>
+						</div>
+					</form>
+				</div>
+
+
+				<div ng-if="mode.value=='confirm'">
+					<div class="">Confirmation : l'etudiant à été inscrit avec succès</div>
+					
+					<form>
+						<div class="form-group">
+							<label class="control-label">ID:</label>
+							<label class="control-label">{{etudiant.data.idEtudiant}}</label>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Nom:</label>
+							<label class="control-label">{{etudiant.data.nom}}</label>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Prénom:</label>
+							<label class="control-label">{{etudiant.data.prenom}}</label>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Date Naissance :</label>
+							<label class="control-label">{{etudiant.data.dateNaissance|date:'yyyy-MM-dd'}}</label>
+						</div>
+					</form>
+				</div>
+
+                <div ng-if="exception.message">
+					<span class="error">{{exception.message}}</span>
+
+				</div>
+
+
+
+
+
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/myApp.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-messages.min.js"></script>
+</body>
+
+</html>

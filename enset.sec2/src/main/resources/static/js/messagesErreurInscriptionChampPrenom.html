@@ -1,0 +1,15 @@
+<html>
+
+
+<body>
+
+	<div ng-messages="registerForm.prenom.$error"  class="error">
+		<!--   ng-show="registerForm.prenom.$touched"  ne fait apparaitre la balise qu'apres la premiere visite du champ -->
+		<p ng-message="required">Le champ prenom est obligatoire.</p>
+		<p ng-message="minlength">Le prenom est trop court, 3 caracteres minimum</p>
+		<p ng-message="maxlength">Le prenom est trop long, 15 caracteres maximum</p>
+	</div>
+
+</body>
+
+</html>

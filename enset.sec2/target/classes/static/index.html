@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="css/myStyle.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	
+</head>
+
+<body ng-app="myApp" ng-controller="IndexController">
+
+	<nav class="navbar navbar-expand-sm bg-light">
+	<ul class="navbar-nav">
+		<li  class="nav-item,clickable" ng-click="select(m)" ng-repeat="m in menu">
+			<a class="nav-link">{{m}}</a>
+		</li>
+	</ul>
+	</nav>
+
+
+
+	
+
+	<!--["Inscription", "Listes", "Utilisateurs", "Logout"]-->
+
+	<div ng-if="selectedMenu=='Inscription'" ng-controller = "InscriptionController">
+		<div ng-include="'inscription.html'"></div>
+	</div>
+	<div ng-if="selectedMenu=='Liste'" ng-controller = "listEtudiantController">
+		<div ng-include="'listEtudiants.html'"></div>
+	</div>
+	
+	
+
+
+
+
+
+
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/myApp.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular-messages.min.js"></script>
+</body>
+
+</html>
